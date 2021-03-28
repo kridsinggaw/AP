@@ -5,6 +5,15 @@ const UserModel = db.user;
 const NewsModel = db.news;
 const HistoryModel = db.history;
 
+const getAllProjectNews = async () => {
+  const news = await NewsModel.findAll({ 
+    where: { 
+      project_id: 1
+    }
+  })
+  return news
+}
+
 const getUserNews = async (userId) => {
   try {
     // Find user news
@@ -12,6 +21,11 @@ const getUserNews = async (userId) => {
     const userNews = await UserModel.findOne({ 
       attributes: ['username', 'first_name', 'last_name'],
       where: { id: userId }, include: [NewsModel]
+    })
+    // Find news for all project
+    const allProjectNews = await getAllProjectNews()
+    allProjectNews.map((item)=>{
+      userNews.news.push(item)
     })
     // Check isRead news
     const news = userNews.news.map((item)=>{

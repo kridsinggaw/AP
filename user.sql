@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `first_name` varchar(255) NOT NULL,
   `last_name` varchar(255) NOT NULL,
   `project_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 COMMIT;
 
 INSERT INTO `user` (`id`, `username`, `password`, `phone`, `first_name`, `last_name`, `project_id`) VALUES
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `news` (
   `project_id` int NOT NULL,
   `start_date` date,
   `end_date` date
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `news` (`id`, `title_th`, `title_en`, `detail_th`, `detail_en`, `project_id`, `start_date`, `end_date`) VALUES
 (1,'วันสงกรานต์', 'Songkran Day', '"<h2>กิจกรรมวันสงกรานต์</h2>
@@ -103,7 +103,7 @@ COMMIT;
 CREATE TABLE IF NOT EXISTS `project` (
   `id` int NOT NULL,
   `name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `project` (`id`, `name`) VALUES
 (1, 'ALL'),
@@ -121,7 +121,7 @@ CREATE TABLE IF NOT EXISTS `history` (
   `id` int NOT NULL,
   `user_id` int NOT NULL,
   `news_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 ALTER TABLE `history`
   ADD PRIMARY KEY (`id`);
